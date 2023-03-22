@@ -16,7 +16,6 @@ export class Statistics extends Component {
     const { good, neutral, bad } = this.props;
     return (
       <>
-        <p>Statistic</p>
         <p>Good: {good}</p>
         <p>Neutral: {neutral}</p>
         <p>Bad: {bad}</p>

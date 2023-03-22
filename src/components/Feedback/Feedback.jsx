@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Statistics } from 'components/Statistics/Statistics';
+import { FeedbackOptions } from 'components/FeedbackOptions/FeedbackOptions';
+import { Notification } from 'components/Notification/Notification';
 
 export class Feedback extends Component {
   state = {
@@ -27,24 +29,17 @@ export class Feedback extends Component {
   };
 
   render() {
+    const { good, neutral, bad } = this.state;
     return (
       <>
-        <h1>Please leave feedback</h1>
-        <button name="good" onClick={this.onBtnClick}>
-          Good
-        </button>
-        <button name="neutral" onClick={this.onBtnClick}>
-          Neutral
-        </button>
-        <button name="bad" onClick={this.onBtnClick}>
-          Bad
-        </button>
+        <FeedbackOptions onLeaveFeedback={this.onBtnClick} />
 
-        <Statistics
-          good={this.state.good}
-          neutral={this.state.neutral}
-          bad={this.state.bad}
-        />
+        <p>Statistic</p>
+        {good + neutral + bad ? (
+          <Statistics good={good} neutral={neutral} bad={bad} />
+        ) : (
+          <Notification />
+        )}
       </>
     );
   }
