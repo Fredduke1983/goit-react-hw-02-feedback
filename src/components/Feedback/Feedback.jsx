@@ -30,12 +30,13 @@ export class Feedback extends Component {
 
   render() {
     const { good, neutral, bad } = this.state;
+    const total = good + neutral + bad;
     return (
       <>
         <FeedbackOptions onLeaveFeedback={this.onBtnClick} />
 
         <p>Statistic</p>
-        {good + neutral + bad ? (
+        {total ? (
           <Statistics good={good} neutral={neutral} bad={bad} />
         ) : (
           <Notification />

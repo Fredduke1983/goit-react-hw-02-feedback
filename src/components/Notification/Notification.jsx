@@ -1,3 +1,3 @@
 export const Notification = () => {
-  return <p>'There is no feedback'</p>;
+  return <p>There is no feedback</p>;
 };
