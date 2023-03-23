@@ -1,20 +1,27 @@
 import { Component } from 'react';
+import {
+  FeedbackBtns,
+  FeedbackBtnsStyle,
+  FeedbackBtnsTitle,
+} from './feedbackBtns.styled';
 
 export class FeedbackOptions extends Component {
   render() {
     const { onLeaveFeedback } = this.props;
     return (
       <>
-        <h1>Please leave feedback</h1>
-        <button name="good" onClick={onLeaveFeedback}>
-          Good
-        </button>
-        <button name="neutral" onClick={onLeaveFeedback}>
-          Neutral
-        </button>
-        <button name="bad" onClick={onLeaveFeedback}>
-          Bad
-        </button>
+        <FeedbackBtnsTitle>Please leave feedback</FeedbackBtnsTitle>
+        <FeedbackBtnsStyle>
+          <FeedbackBtns name="good" onClick={onLeaveFeedback}>
+            Good
+          </FeedbackBtns>
+          <FeedbackBtns name="neutral" onClick={onLeaveFeedback}>
+            Neutral
+          </FeedbackBtns>
+          <FeedbackBtns name="bad" onClick={onLeaveFeedback}>
+            Bad
+          </FeedbackBtns>
+        </FeedbackBtnsStyle>
       </>
     );
   }

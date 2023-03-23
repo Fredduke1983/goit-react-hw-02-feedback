@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { StatStyle, StatTitle } from './statistics.styled';
 
 export class Statistics extends Component {
   countTotalFeedback(good, neutral, bad) {
@@ -15,8 +16,9 @@ export class Statistics extends Component {
   render() {
     const { good, neutral, bad } = this.props;
     return (
-      <>
+      <StatStyle>
         <p>Good: {good}</p>
+
         <p>Neutral: {neutral}</p>
         <p>Bad: {bad}</p>
         <p>Total: {this.countTotalFeedback(good, neutral, bad)}</p>
@@ -24,7 +26,7 @@ export class Statistics extends Component {
           Positive feedback:
           {this.countPositiveFeedbackPercentage(good, neutral, bad)}%
         </p>
-      </>
+      </StatStyle>
     );
   }
 }

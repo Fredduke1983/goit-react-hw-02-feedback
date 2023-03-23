@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Statistics } from 'components/Statistics/Statistics';
 import { FeedbackOptions } from 'components/FeedbackOptions/FeedbackOptions';
 import { Notification } from 'components/Notification/Notification';
+import { FeedbackStyle, StatTitle } from './feedback.styled';
 
 export class Feedback extends Component {
   state = {
@@ -32,16 +33,16 @@ export class Feedback extends Component {
     const { good, neutral, bad } = this.state;
     const total = good + neutral + bad;
     return (
-      <>
+      <FeedbackStyle>
         <FeedbackOptions onLeaveFeedback={this.onBtnClick} />
 
-        <p>Statistic</p>
+        <StatTitle>Statistic</StatTitle>
         {total ? (
           <Statistics good={good} neutral={neutral} bad={bad} />
         ) : (
           <Notification />
         )}
-      </>
+      </FeedbackStyle>
     );
   }
 }

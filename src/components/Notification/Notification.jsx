@@ -1,3 +1,5 @@
+import { NotifiStyle } from './notify.styled';
+
 export const Notification = () => {
-  return <p>There is no feedback</p>;
+  return <NotifiStyle>There is no feedback</NotifiStyle>;
 };
