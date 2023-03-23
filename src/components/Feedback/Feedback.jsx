@@ -11,17 +11,18 @@ export class Feedback extends Component {
     bad: 0,
   };
 
-  onBtnClick = ({ target }) => {
+  onBtnClick = e => {
+    const { name } = e.currentTarget;
     this.setState(({ good, neutral, bad }) => {
-      if (target.name === 'good') {
+      if (name === 'good') {
         return {
           good: good + 1,
         };
-      } else if (target.name === 'neutral') {
+      } else if (name === 'neutral') {
         return {
           neutral: neutral + 1,
         };
-      } else if (target.name === 'bad') {
+      } else if (name === 'bad') {
         return {
           bad: bad + 1,
         };
