@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { StatStyle, StatTitle } from './statistics.styled';
+import { StatStyle } from './statistics.styled';
 
 export class Statistics extends Component {
   countTotalFeedback(good, neutral, bad) {
