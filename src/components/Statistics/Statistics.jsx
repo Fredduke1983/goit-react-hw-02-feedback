@@ -2,11 +2,7 @@ import { Component } from 'react';
 import { StatStyle } from './statistics.styled';
 
 export class Statistics extends Component {
-  countTotalFeedback(good, neutral, bad) {
-    return good + neutral + bad;
-  }
-  countPositiveFeedbackPercentage(good, neutral, bad) {
-    const total = good + neutral + bad;
+  countPositiveFeedbackPercentage(good, total) {
     if (!total) {
       return 0;
     }
@@ -14,17 +10,17 @@ export class Statistics extends Component {
   }
 
   render() {
-    const { good, neutral, bad } = this.props;
+    const { good, neutral, bad, total } = this.props;
     return (
       <StatStyle>
         <p>Good: {good}</p>
 
         <p>Neutral: {neutral}</p>
         <p>Bad: {bad}</p>
-        <p>Total: {this.countTotalFeedback(good, neutral, bad)}</p>
+        <p>Total: {total}</p>
         <p>
           Positive feedback:
-          {this.countPositiveFeedbackPercentage(good, neutral, bad)}%
+          {this.countPositiveFeedbackPercentage(good, total)}%
         </p>
       </StatStyle>
     );

@@ -18,16 +18,25 @@ export class App extends Component {
     });
   };
 
+  total({ good, neutral, bad }) {
+    return good + neutral + bad;
+  }
+
   render() {
     const { good, neutral, bad } = this.state;
-    const total = good + neutral + bad;
     return (
       <FeedbackStyle>
         <FeedbackOptions onLeaveFeedback={this.onBtnClick} />
 
         <StatTitle>Statistic</StatTitle>
-        {total ? (
-          <Statistics good={good} neutral={neutral} bad={bad} />
+        {this.total(this.state) ? (
+          <Statistics
+            total={this.total(this.state)}
+            props={this.state}
+            good={good}
+            neutral={neutral}
+            bad={bad}
+          />
         ) : (
           <Notification />
         )}
