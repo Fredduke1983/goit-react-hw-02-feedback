@@ -13,20 +13,8 @@ export class App extends Component {
 
   onBtnClick = e => {
     const { name } = e.currentTarget;
-    this.setState(({ good, neutral, bad }) => {
-      if (name === 'good') {
-        return {
-          good: good + 1,
-        };
-      } else if (name === 'neutral') {
-        return {
-          neutral: neutral + 1,
-        };
-      } else if (name === 'bad') {
-        return {
-          bad: bad + 1,
-        };
-      }
+    this.setState(prevState => {
+      return { [name]: prevState[name] + 1 };
     });
   };
 
